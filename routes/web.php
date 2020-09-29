@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home', [App\Http\Controllers\ExpensesController::class, 'store'])->name('addExpense');
+
+Route::get('/profile', [App\Http\Controllers\ProfilesController::class, 'index'])->name('showProfile');
+Route::post('/profile', [App\Http\Controllers\ProfilesController::class, 'updateBalance'])->name('updateBalance');

@@ -1,23 +1,91 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">witaj {{ $user->name }}, stan twojego konta to: {{ $user->profile->balance }} zł</div>
+            <div class="col-6">
+                <h2>Add expense</h2>
+                <form action="{{ route('addExpense') }}" enctype="multipart/form-data" method="post">
+                    @csrf
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="title">
                         </div>
-                    @endif
+                    </div>
 
-                    {{ __('You are logged in!') }}
-                </div>
+                    <div class="form-group row">
+                        <label for="date" class="col-sm-2 col-form-label">Date</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" name="date" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="category" class="col-sm-2 col-form-label">Category</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="category">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="recipient" class="col-sm-2 col-form-label">Recipient</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="recipient" placeholder=" ">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="amount" step="0.01">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row" name="direction">
+                        <label for="direction" class="col-sm-2 col-form-label">Direction</label>
+                        <div class="form-check form-check-inline pl-3">
+                            <input class="form-check-input" type="radio" name="direction" id="expense" value="expense" checked>
+                            <label class="form-check-label" for="expense">Expense</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="direction" id="income" value="income">
+                            <label class="form-check-label" for="income">Income</label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- last transactions -->
+        <div class="container mt-5">
+            <div class="row">
+                <table class="table table-striped table-hover table-bordered table-sm">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">data</th>
+                        <th scope="col">tytuł</th>
+                        <th scope="col">kategoria</th>
+                        <th scope="col">odbiorca</th>
+                        <th scope="col">kwota</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
 @endsection
