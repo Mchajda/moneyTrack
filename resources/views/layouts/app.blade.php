@@ -26,6 +26,21 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
+                @if(auth()->user())
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('showExpenses') }}">Expenses <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('showIncomes') }}">Incomes</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('showSummary') }}">Summary</a>
+                        </li>
+                    </ul>
+                @endif
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

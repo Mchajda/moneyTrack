@@ -23,9 +23,9 @@ class ExpensesController extends Controller
         ]);
 
         if(request()->direction == "expense"){
-            $newBalance = auth()->user()->profile->first()->balance - request()->amount;
+            $newBalance = auth()->user()->profile->balance - request()->amount;
         }else if(request()->direction == "income"){
-            $newBalance = auth()->user()->profile->first()->balance + request()->amount;
+            $newBalance = auth()->user()->profile->balance + request()->amount;
             $data['recipient'] = "me";
         }
 

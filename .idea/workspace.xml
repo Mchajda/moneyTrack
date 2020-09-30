@@ -162,7 +162,8 @@
       <option name="presentableId" value="Default" />
       <updated>1601402129200</updated>
       <workItem from="1601402130419" duration="895000" />
-      <workItem from="1601403900554" duration="7702000" />
+      <workItem from="1601403900554" duration="7772000" />
+      <workItem from="1601456383292" duration="9419000" />
     </task>
     <servers />
   </component>
@@ -170,13 +171,17 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601466436526">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601466436526" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601403897884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601403897884" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601418252493">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601474615362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601418252493" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601474615362" />
   </component>
 </project>

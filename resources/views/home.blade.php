@@ -26,7 +26,11 @@
                     <div class="form-group row">
                         <label for="category" class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="category">
+                            <select class="form-control" id="category" name="category">
+                                @foreach($categories as $cat)
+                                    <option>{{ $cat->category_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 
@@ -76,13 +80,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>a</td>
-                        <td>a</td>
-                        <td>a</td>
-                        <td>a</td>
-                        <td>a</td>
-                    </tr>
+                    @foreach($expenses as $expense)
+                        <tr>
+                            <td>{{ $expense->date }}</td>
+                            <td>{{ $expense->title }}</td>
+                            <td>{{ $expense->category }}</td>
+                            <td>{{ $expense->recipient }}</td>
+                            <td>{{ $expense->amount }}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
