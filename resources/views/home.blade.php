@@ -27,6 +27,7 @@
                         <label for="category" class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="category" name="category">
+                                <option>other</option>
                                 @foreach($categories as $cat)
                                     <option>{{ $cat->category_name }}</option>
                                 @endforeach
@@ -37,7 +38,7 @@
                     <div class="form-group row">
                         <label for="recipient" class="col-sm-2 col-form-label">Recipient</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="recipient" placeholder=" ">
+                            <input type="text" class="form-control" name="recipient" value="other" placeholder="add recipient...">
                         </div>
                     </div>
 

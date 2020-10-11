@@ -42,11 +42,12 @@ class ProfilesController extends Controller
     public function showSummary(){
         $user = User::find(auth()->user()->id);
 
-        $from = date('2020-09-01');
-        $to = date('2020-09-29');
-
+        /*
+        $from = date('2020-10-01');
+        $to = date('2020-10-31');
         $expenses = Expense::whereBetween('date', [$from, $to])->get();
-//dd($expenses);
+        */
+        $expenses = Expense::where('user_id', auth()->user()->id)->get();
 
         return view('profile.summary', [
             'user' => $user,
