@@ -9,7 +9,6 @@
         @if(\Carbon\Carbon::parse($expense->date)->format('M') == 'Oct')
             {{ $expense->title }}
         @endif
-        
     @endforeach
 </div>
 @endsection

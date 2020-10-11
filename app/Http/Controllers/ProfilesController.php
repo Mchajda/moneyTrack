@@ -47,7 +47,8 @@ class ProfilesController extends Controller
         $to = date('2020-10-31');
         $expenses = Expense::whereBetween('date', [$from, $to])->get();
         */
-        $expenses = Expense::where('user_id', auth()->user()->id)->get();
+
+        $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
 
         return view('profile.summary', [
             'user' => $user,
