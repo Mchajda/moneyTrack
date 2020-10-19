@@ -43,21 +43,31 @@ class ProfilesController extends Controller
         $user = User::find(auth()->user()->id);
         $months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
         $this_month = $months[date('m')-1];
+        $previous_month = $months[date('m')-2];
         $categories = Category::all();
         $this_month_expenses = [];
+        $previous_month_expenses = [];
         $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
 
+        //this month expenses
         foreach($categories as $cat){
             $this_month_expenses[$cat->id] = 0;
             foreach($expenses as $expense){
-                if($expense->category == $cat->category_name)
+                if($expense->category == $cat->category_name && \Carbon\Carbon::parse($expense->date)->format('m') == date('m'))
                     $this_month_expenses[$cat->id] += $expense->amount;
             }
         }
 
-        /*
-         * wydatki posegregowane na miesiace np do rocznego zestawienia
-         */
+        //previous month expenses
+        foreach($categories as $cat){
+            $previous_month_expenses[$cat->id] = 0;
+            foreach($expenses as $expense){
+                if($expense->category == $cat->category_name && \Carbon\Carbon::parse($expense->date)->format('m') == (date('m')-1))
+                    $previous_month_expenses[$cat->id] += $expense->amount;
+            }
+        }
+
+        //wydatki posegregowane na miesiace np do rocznego zestawienia
         for( $i=0 ; $i<12 ; $i++){
             $monthly_sum = 0;
             foreach($expenses as $expense){
@@ -77,7 +87,9 @@ class ProfilesController extends Controller
             'user' => $user,
             'expenses' => $expenses,
             'month' => $this_month,
+            'previous_month_name' => $previous_month,
             'this_month' => $this_month_expenses,
+            'previous_month' => $previous_month_expenses,
             'monthly_expenses' => $monthly_expenses,
             'categories' => $categories,
         ]);
