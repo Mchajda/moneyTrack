@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Expense;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,12 +17,15 @@ class ProfilesController extends Controller
         ]);
     }
 
-    public function updateBalance(User $user){
+    public function updateBalance(){
         $data = request()->validate([
             'balance' => 'required',
         ]);
 
-        auth()->user()->profile()->update($data);
+        $profile = Profile::where('user_id', auth()->user()->id)->get();
+        $profile[0]->balance = $data['balance'];
+        $profile[0]->save();
+        
         return redirect()->route('home');
     }
 
