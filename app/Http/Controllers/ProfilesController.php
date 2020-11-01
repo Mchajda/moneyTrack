@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\MonthsChart;
 use App\Http\Managers\SummaryManager;
 use App\Models\Category;
 use App\Models\Expense;
@@ -63,6 +64,10 @@ class ProfilesController extends Controller
         $previous_month_expenses = $this->summaryManager->getPreviousMonthExpenses($expenses, $categories);;
         $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
 
+        $chart = new MonthsChart();
+        $chart->labels(['one', 'two', 'three', 'four']);
+        $chart->dataset('My dataset 1', 'line', [1,2,3,4]);
+
         /*
         $from = date('2020-10-01');
         $to = date('2020-10-31');
@@ -73,7 +78,7 @@ class ProfilesController extends Controller
             'user' => $user, 'month' => $this_month,
             'previous_month_name' => $previous_month, 'categories' => $categories,
             'this_month' => $this_month_expenses, 'previous_month' => $previous_month_expenses,
-            'monthly_expenses' => $monthly_expenses,
+            'monthly_expenses' => $monthly_expenses, 'chart' => $chart,
         ]);
     }
 }
