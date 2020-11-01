@@ -3,7 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-6">witaj {{ $user->name }}, stan twojego konta to: {{ $user->profile->balance }} zł</div>
+            <div class="col-6">
+                <div>
+                    witaj {{ $user->name }}, stan twojego konta to: {{ $user->profile->balance }} zł
+                </div>
+                <div>
+                    {!! $chart->container() !!}
+                    {!! $chart->script() !!}
+                </div>
+            </div>
             <div class="col-6">
                 <h2>Add expense</h2>
                 <form action="{{ route('addExpense') }}" enctype="multipart/form-data" method="post">

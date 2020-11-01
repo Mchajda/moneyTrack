@@ -17,7 +17,7 @@
                 <hr>
             @endforeach
             <div class="d-flex justify-content-between">
-                <div>razem:</div>
+                <div>total:</div>
                 <div>{{ $monthly_expenses[date('m')-1] }}</div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <hr>
             @endforeach
             <div class="d-flex justify-content-between">
-                <div>razem:</div>
+                <div>total:</div>
                 <div>{{ array_sum($this_month) }}</div>
             </div>
         </div>

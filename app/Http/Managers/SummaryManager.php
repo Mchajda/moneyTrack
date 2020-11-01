@@ -58,7 +58,7 @@ class SummaryManager
     public function createMonthlyChart($labels, $data){
         $chart = new MonthsChart();
         $chart->labels($labels);
-        $chart->dataset('Monthly Expenses', 'bar', $data)->backgroundColor('#7cb342');
+        $chart->dataset('Monthly Expenses', 'bar', $data)->backgroundColor('#007bff');
 
         return $chart;
     }
