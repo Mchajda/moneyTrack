@@ -4,6 +4,7 @@
 namespace App\Http\Managers;
 
 
+use App\Charts\MonthsChart;
 use App\Models\Category;
 
 class SummaryManager
@@ -52,5 +53,13 @@ class SummaryManager
         }
 
         return $monthly_expenses;
+    }
+
+    public function createMonthlyChart($labels, $data){
+        $chart = new MonthsChart();
+        $chart->labels($labels);
+        $chart->dataset('Monthly Expenses', 'bar', $data)->backgroundColor('#7cb342');
+
+        return $chart;
     }
 }
