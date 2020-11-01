@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Managers\SummaryManager;
 use App\Models\Category;
 use App\Models\Expense;
 use App\Models\Profile;
@@ -10,6 +11,12 @@ use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
 {
+    private $summaryManager;
+
+    public function __construct(SummaryManager $manager){
+        $this->summaryManager = $manager;
+    }
+
     public function index(){
         $user = User::find(auth()->user()->id);
         return view('profile.profile', [
@@ -25,7 +32,7 @@ class ProfilesController extends Controller
         $profile = Profile::where('user_id', auth()->user()->id)->get();
         $profile[0]->balance = $data['balance'];
         $profile[0]->save();
-        
+
         return redirect()->route('home');
     }
 
@@ -45,41 +52,16 @@ class ProfilesController extends Controller
 
     public function showSummary(){
         $user = User::find(auth()->user()->id);
+        $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
         $months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
+
         $this_month = $months[date('m')-1];
         $previous_month = $months[date('m')-2];
+
         $categories = Category::all();
-        $this_month_expenses = [];
-        $previous_month_expenses = [];
-        $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
-
-        //this month expenses
-        foreach($categories as $cat){
-            $this_month_expenses[$cat->id] = 0;
-            foreach($expenses as $expense){
-                if($expense->category == $cat->category_name && \Carbon\Carbon::parse($expense->date)->format('m') == date('m'))
-                    $this_month_expenses[$cat->id] += $expense->amount;
-            }
-        }
-
-        //previous month expenses
-        foreach($categories as $cat){
-            $previous_month_expenses[$cat->id] = 0;
-            foreach($expenses as $expense){
-                if($expense->category == $cat->category_name && \Carbon\Carbon::parse($expense->date)->format('m') == (date('m')-1))
-                    $previous_month_expenses[$cat->id] += $expense->amount;
-            }
-        }
-
-        //wydatki posegregowane na miesiace np do rocznego zestawienia
-        for( $i=0 ; $i<12 ; $i++){
-            $monthly_sum = 0;
-            foreach($expenses as $expense){
-                if(\Carbon\Carbon::parse($expense->date)->format('m') == $i)
-                    $monthly_sum += $expense->amount;
-            }
-            $monthly_expenses[$i] = $monthly_sum;
-        }
+        $this_month_expenses = $this->summaryManager->getThisMonthExpenses($expenses, $categories);
+        $previous_month_expenses = $this->summaryManager->getPreviousMonthExpenses($expenses, $categories);;
+        $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
 
         /*
         $from = date('2020-10-01');
@@ -88,14 +70,10 @@ class ProfilesController extends Controller
         */
 
         return view('profile.summary', [
-            'user' => $user,
-            'expenses' => $expenses,
-            'month' => $this_month,
-            'previous_month_name' => $previous_month,
-            'this_month' => $this_month_expenses,
-            'previous_month' => $previous_month_expenses,
+            'user' => $user, 'month' => $this_month,
+            'previous_month_name' => $previous_month, 'categories' => $categories,
+            'this_month' => $this_month_expenses, 'previous_month' => $previous_month_expenses,
             'monthly_expenses' => $monthly_expenses,
-            'categories' => $categories,
         ]);
     }
 }

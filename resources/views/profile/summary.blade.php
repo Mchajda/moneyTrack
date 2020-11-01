@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3>Oto podsumowanie twoich wydatków miesiąca {{ $month }}</h3>
-    poprzedniego miesiąca wydałeś {{ $monthly_expenses[date('m')-1] }} zł
+    <h3>Oto podsumowanie twoich wydatków miesiąca.</h3>
     <hr>
 </div>
 <div class="container">
@@ -12,21 +11,29 @@
             <h4>{{ $previous_month_name }}</h4>
             @foreach($categories as $cat)
                 <div class="d-flex justify-content-between">
-                    <div><b>{{ $cat->category_name }}</b>: {{ $previous_month[$cat->id] }}</div>
-                    <div>zł</div>
+                    <div><b>{{ $cat->category_name }}</b>:</div>
+                    <div>{{ $previous_month[$cat->id] }} zł</div>
                 </div>
                 <hr>
             @endforeach
+            <div class="d-flex justify-content-between">
+                <div>razem:</div>
+                <div>{{ $monthly_expenses[date('m')-1] }}</div>
+            </div>
         </div>
         <div class="col-9">
             <h4>{{ $month }}</h4>
             @foreach($categories as $cat)
                 <div class="d-flex justify-content-between">
-                    <div><b>{{ $cat->category_name }}</b>: {{ $this_month[$cat->id] }}</div>
-                    <div>zł</div>
+                    <div><b>{{ $cat->category_name }}</b>:</div>
+                    <div>{{ $this_month[$cat->id] }} zł</div>
                 </div>
                 <hr>
             @endforeach
+            <div class="d-flex justify-content-between">
+                <div>razem:</div>
+                <div>{{ array_sum($this_month) }}</div>
+            </div>
         </div>
     </div>
 </div>
