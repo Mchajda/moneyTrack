@@ -11,8 +11,10 @@ class MonthsChart extends Chart
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($axes)
     {
         parent::__construct();
+        $this->displayAxes($axes);
+        $this->minimalist(false);
     }
 }

@@ -35,9 +35,10 @@ class HomeController extends Controller
         $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
         $categories = Category::all();
 
-        $months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
-        $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
-        $monthly_chart = $this->summaryManager->createChart($months, $monthly_expenses, 'bar', 'Monthly expenses', '#007bff', 'true');
+        $categoriesForChart = Category::all()->pluck('category_name', 'id');
+        $this_month_expenses = $this->summaryManager->getThisMonthExpenses($expenses, $categories);
+        $colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'grey'];
+        $monthly_chart = $this->summaryManager->createChart($categoriesForChart->values(), array_values($this_month_expenses), 'doughnut', 'This month expenses', $colors, false, true);
 
         return view('home', [
             'user' => $user,

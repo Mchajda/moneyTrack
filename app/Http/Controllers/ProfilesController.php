@@ -55,13 +55,13 @@ class ProfilesController extends Controller
         $this_month = $months[date('m')-1];
         $previous_month = $months[date('m')-2];
 
-
         $this_month_expenses = $this->summaryManager->getThisMonthExpenses($expenses, $categories);
         $previous_month_expenses = $this->summaryManager->getPreviousMonthExpenses($expenses, $categories);;
         $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
 
-        $monthly_chart = $this->summaryManager->createChart($months, $monthly_expenses, 'bar', 'Monthly expenses', '#007bff', 'true');
-        $this_month_chart  = $this->summaryManager->createChart($categoriesForChart->values(), array_values($this_month_expenses), 'doughnut', 'This month expenses', '#007bff', 'false');
+        $monthly_chart = $this->summaryManager->createChart($months, $monthly_expenses, 'bar', 'Monthly expenses', '#007bff', 'true', 'false');
+        $colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'grey'];
+        $this_month_chart  = $this->summaryManager->createChart($categoriesForChart->values(), array_values($this_month_expenses), 'doughnut', 'This month expenses', $colors, false, false);
 
         return view('profile.summary', [
             'user' => $user, 'month' => $this_month,

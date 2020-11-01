@@ -56,11 +56,11 @@ class SummaryManager
         return $monthly_expenses;
     }
 
-    public function createChart($labels, $data, $type, $title, $color, $axes){
+    public function createChart($labels, $data, $type, $title, $color, $axes, $minimalist){
         if($type == 'bar')
-            $chart = new MonthsChart();
+            $chart = new MonthsChart($axes);
         elseif($type == 'doughnut')
-            $chart = new ThisMonthChart();
+            $chart = new ThisMonthChart($axes, $minimalist);
 
         $chart->labels($labels);
         $chart->dataset($title, $type, $data)->backgroundColor($color);
