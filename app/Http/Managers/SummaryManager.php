@@ -5,6 +5,7 @@ namespace App\Http\Managers;
 
 
 use App\Charts\MonthsChart;
+use App\Charts\ThisMonthChart;
 use App\Models\Category;
 
 class SummaryManager
@@ -56,9 +57,13 @@ class SummaryManager
     }
 
     public function createChart($labels, $data, $type, $title, $color, $axes){
-        $chart = new MonthsChart();
+        if($type == 'bar')
+            $chart = new MonthsChart();
+        elseif($type == 'doughnut')
+            $chart = new ThisMonthChart();
+
         $chart->labels($labels);
-        $chart->dataset($title, $type, $data)->backgroundColor($color)->displayLegend(true);
+        $chart->dataset($title, $type, $data)->backgroundColor($color);
 
         return $chart;
     }
