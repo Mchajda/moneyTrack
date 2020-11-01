@@ -37,13 +37,6 @@ class ProfilesController extends Controller
         return redirect()->route('home');
     }
 
-    public function showExpenses(){
-        $user = User::find(auth()->user()->id);
-        return view('profile.expenses', [
-            'user' => $user,
-        ]);
-    }
-
     public function showIncomes(){
         $user = User::find(auth()->user()->id);
         return view('profile.incomes', [

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ExpensesController extends Controller
@@ -39,5 +40,12 @@ class ExpensesController extends Controller
 
         return redirect()->route('home');
 
+    }
+
+    public function showExpenses(){
+        $user = User::find(auth()->user()->id);
+        return view('profile.expenses', [
+            'user' => $user,
+        ]);
     }
 }
