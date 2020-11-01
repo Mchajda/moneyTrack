@@ -55,10 +55,10 @@ class SummaryManager
         return $monthly_expenses;
     }
 
-    public function createMonthlyChart($labels, $data){
+    public function createChart($labels, $data, $type, $title, $color, $axes){
         $chart = new MonthsChart();
         $chart->labels($labels);
-        $chart->dataset('Monthly Expenses', 'bar', $data)->backgroundColor('#007bff');
+        $chart->dataset($title, $type, $data)->backgroundColor($color)->displayLegend(true);
 
         return $chart;
     }

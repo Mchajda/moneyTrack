@@ -37,13 +37,13 @@ class HomeController extends Controller
 
         $months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
         $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
-        $chart = $this->summaryManager->createMonthlyChart($months, $monthly_expenses);
+        $monthly_chart = $this->summaryManager->createChart($months, $monthly_expenses, 'bar', 'Monthly expenses', '#007bff', 'true');
 
         return view('home', [
             'user' => $user,
             'expenses' => $last5expenses,
             'categories' => $categories,
-            'chart' => $chart,
+            'chart' => $monthly_chart,
         ]);
     }
 }

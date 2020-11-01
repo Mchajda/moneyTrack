@@ -47,17 +47,21 @@ class ProfilesController extends Controller
     public function showSummary(){
         $user = User::find(auth()->user()->id);
         $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
+
         $months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
+        $categories = Category::all();
+        $categoriesForChart = Category::all()->pluck('category_name', 'id');
 
         $this_month = $months[date('m')-1];
         $previous_month = $months[date('m')-2];
 
-        $categories = Category::all();
+
         $this_month_expenses = $this->summaryManager->getThisMonthExpenses($expenses, $categories);
         $previous_month_expenses = $this->summaryManager->getPreviousMonthExpenses($expenses, $categories);;
         $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
 
-        $chart = $this->summaryManager->createMonthlyChart($months, $monthly_expenses);
+        $monthly_chart = $this->summaryManager->createChart($months, $monthly_expenses, 'bar', 'Monthly expenses', '#007bff', 'true');
+        $this_month_chart  = $this->summaryManager->createChart($categoriesForChart->values(), array_values($this_month_expenses), 'pie', 'This month expenses', '#007bff', 'false');
 
         /*
         $from = date('2020-10-01');
@@ -69,7 +73,8 @@ class ProfilesController extends Controller
             'user' => $user, 'month' => $this_month,
             'previous_month_name' => $previous_month, 'categories' => $categories,
             'this_month' => $this_month_expenses, 'previous_month' => $previous_month_expenses,
-            'monthly_expenses' => $monthly_expenses, 'chart' => $chart,
+            'monthly_expenses' => $monthly_expenses, 'chart' => $monthly_chart,
+            'this_month_chart' => $this_month_chart,
         ]);
     }
 }

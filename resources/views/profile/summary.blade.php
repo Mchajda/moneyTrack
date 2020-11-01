@@ -42,6 +42,12 @@
         {!! $chart->container() !!}
         {!! $chart->script() !!}
     </div>
+
+    <div class="pt-4">
+        <h3>This month expenses</h3>
+        {!! $this_month_chart->container() !!}
+        {!! $this_month_chart->script() !!}
+    </div>
 </div>
 
 <!-- Charting library -->
