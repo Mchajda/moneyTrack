@@ -65,8 +65,8 @@ class ProfilesController extends Controller
         $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
 
         $chart = new MonthsChart();
-        $chart->labels(['one', 'two', 'three', 'four']);
-        $chart->dataset('My dataset 1', 'line', [1,2,3,4]);
+        $chart->labels($months);
+        $chart->dataset('Monthly Expenses', 'bar', $monthly_expenses)->backgroundColor('#7cb342');
 
         /*
         $from = date('2020-10-01');

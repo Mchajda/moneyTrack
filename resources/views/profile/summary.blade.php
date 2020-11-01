@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3>Oto podsumowanie twoich wydatków miesiąca.</h3>
+    <h3>Podsumowanie twoich wydatków miesiąca.</h3>
     <hr>
 </div>
 <div class="container">
@@ -37,8 +37,11 @@
         </div>
     </div>
 
-    {!! $chart->container() !!}
-    {!! $chart->script() !!}
+    <div class="pt-4">
+        <h3>Monthly expenses</h3>
+        {!! $chart->container() !!}
+        {!! $chart->script() !!}
+    </div>
 </div>
 
 <!-- Charting library -->
