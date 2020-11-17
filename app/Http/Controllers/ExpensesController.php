@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Expense;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,8 +45,10 @@ class ExpensesController extends Controller
 
     public function showExpenses(){
         $user = User::find(auth()->user()->id);
+        $user_expenses = Expense::where('user_id', auth()->user()->id)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
         return view('profile.expenses', [
             'user' => $user,
+            'expenses' => $user_expenses,
         ]);
     }
 }

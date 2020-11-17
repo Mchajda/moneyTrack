@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-            @foreach($user->expenses as $expense)
+            @foreach($expenses as $expense)
                 @if($expense->direction == 'expense')
                     <tr>
                         <td>{{ $expense->date }}</td>

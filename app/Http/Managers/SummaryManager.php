@@ -47,7 +47,7 @@ class SummaryManager
         for( $i=0 ; $i<12 ; $i++){
             $monthly_sum = 0;
             foreach($expenses as $expense){
-                if(\Carbon\Carbon::parse($expense->date)->format('m') == $i)
+                if(\Carbon\Carbon::parse($expense->date)->format('m') == $i+1)
                     $monthly_sum += $expense->amount;
             }
             $monthly_expenses[$i] = $monthly_sum;

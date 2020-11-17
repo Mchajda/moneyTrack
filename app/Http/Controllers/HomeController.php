@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::find(auth()->user()->id);
-        $last5expenses = Expense::where('user_id', auth()->user()->id)->take(5)->orderby('date', 'desc')->get();
+        $last5expenses = Expense::where('user_id', auth()->user()->id)->take(5)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
         $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
         $categories = Category::all();
 
