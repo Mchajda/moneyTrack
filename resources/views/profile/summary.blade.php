@@ -11,28 +11,28 @@
             <h4>{{ $previous_month_name }}</h4>
             @foreach($categories as $cat)
                 <div class="d-flex justify-content-between">
-                    <div><b>{{ $cat->category_name }}</b>:</div>
+                    <div><b><a class="text-dark" href="{{ route('showCategory', ['month' => date('m')-1, 'category' => $cat->category_name]) }}">{{ $cat->category_name }}</a></b>:</div>
                     <div>{{ $previous_month[$cat->id] }} zł</div>
                 </div>
                 <hr>
             @endforeach
             <div class="d-flex justify-content-between">
                 <div>total:</div>
-                <div>{{ $monthly_expenses[date('m')-1] }}</div>
+                <div>{{ $monthly_expenses[date('m')-2] }}</div>
             </div>
         </div>
         <div class="col-9">
             <h4>{{ $month }}</h4>
             @foreach($categories as $cat)
                 <div class="d-flex justify-content-between">
-                    <div><b>{{ $cat->category_name }}</b>:</div>
+                    <div><b><a class="text-dark" href="{{ route('showCategory', ['month' => date('m'), 'category' => $cat->category_name]) }}">{{ $cat->category_name }}</a></b>:</div>
                     <div>{{ $this_month[$cat->id] }} zł</div>
                 </div>
                 <hr>
             @endforeach
             <div class="d-flex justify-content-between">
                 <div>total:</div>
-                <div>{{ array_sum($this_month) }}</div>
+                <div>{{ $monthly_expenses[date('m')-1] }}</div>
             </div>
         </div>
     </div>

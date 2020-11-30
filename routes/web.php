@@ -27,6 +27,7 @@ Route::post('/profile', [App\Http\Controllers\ProfilesController::class, 'update
 
 Route::get('/profile/expenses', [App\Http\Controllers\ExpensesController::class, 'showExpenses'])->name('showExpenses');
 Route::get('/profile/incomes', [App\Http\Controllers\ProfilesController::class, 'showIncomes'])->name('showIncomes');
-Route::get('/profile/summary', [App\Http\Controllers\ProfilesController::class, 'showSummary'])->name('showSummary');
+Route::get('/profile/summary/{month}', [App\Http\Controllers\ProfilesController::class, 'showSummary'])->name('showSummary');
+Route::get('/profile/summary/{month}/{category}', [App\Http\Controllers\ProfilesController::class, 'showCategory'])->name('showCategory');
 
 Route::post('/category/save', [App\Http\Controllers\CategoriesController::class, 'store'])->name('addCategory');

@@ -36,7 +36,7 @@
                             <a class="nav-link" href="{{ route('showIncomes') }}">Incomes</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('showSummary') }}">Summary</a>
+                            <a class="nav-link" href="{{ route('showSummary', ['month' => date('m')]) }}">Summary</a>
                         </li>
                     </ul>
                 @endif
