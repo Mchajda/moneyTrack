@@ -7,6 +7,7 @@ use App\Http\Providers\UserProvider;
 use App\Http\RequestProcessors\ExpensesRequestProcessor;
 use App\Http\Services\ProfileService;
 use App\Models\Profile;
+use App\Models\User;
 
 
 class ExpensesController extends Controller
@@ -40,6 +41,12 @@ class ExpensesController extends Controller
         return view('profile.expenses', [
             'user' => auth()->user(),
             'expenses' => $this->expensesProvider->getAll(auth()->user()->id),
+        ]);
+    }
+
+    public function showIncomes(){
+        return view('profile.incomes', [
+            'user' => auth()->user(),
         ]);
     }
 }
