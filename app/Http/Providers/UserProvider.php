@@ -6,6 +6,7 @@ namespace App\Http\Providers;
 
 use App\Http\Providers\Interfaces\UserProviderInterface;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserProvider implements UserProviderInterface
 {
@@ -16,6 +17,6 @@ class UserProvider implements UserProviderInterface
 
     public function getCurrentUser(): User
     {
-        return auth()->user;
+        return Auth::user()->getAuthIdentifier();
     }
 }
