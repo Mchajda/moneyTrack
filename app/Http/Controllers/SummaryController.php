@@ -3,59 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Http\Managers\SummaryManager;
+use App\Http\Providers\ExpensesProvider;
 use App\Http\Services\ProfileService;
-use App\Models\Category;
-use App\Models\Expense;
-use App\Models\User;
-use Illuminate\Http\Request;
 
 class SummaryController extends Controller
 {
     private $summaryManager;
     private $profileService;
+    private $expensesProvider;
 
     public function __construct(
         SummaryManager $manager,
-        ProfileService $profileService
+        ProfileService $profileService,
+        ExpensesProvider $expensesProvider
     ){
         $this->summaryManager = $manager;
         $this->profileService = $profileService;
+        $this->expensesProvider = $expensesProvider;
     }
 
     public function showSummary($month){
-        $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->get();
-
-        $months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
-        $categories = Category::all();
-        $categoriesForChart = Category::all()->pluck('category_name', 'id');
-
-        $this_month = $months[$month-1];
-        $previous_month = $months[$month-2];
-
-        $this_month_expenses = $this->summaryManager->getThisMonthExpenses($expenses, $categories);
-        $previous_month_expenses = $this->summaryManager->getPreviousMonthExpenses($expenses, $categories);;
-        $monthly_expenses = $this->summaryManager->getMonthlyExpenses($expenses);
-
-        $monthly_chart = $this->summaryManager->createChart($months, $monthly_expenses, 'bar', 'Monthly expenses', '#007bff', 'true', 'false');
-        $colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'grey'];
-        $this_month_chart  = $this->summaryManager->createChart($categoriesForChart->values(), array_values($this_month_expenses), 'doughnut', 'This month expenses', $colors, false, false);
+        $expenses = $this->expensesProvider->getAll(auth()->user()->id);
 
         return view('profile.summary', [
-            'user' => auth()->user(), 'month' => $this_month,
-            'previous_month_name' => $previous_month, 'categories' => $categories,
-            'this_month' => $this_month_expenses, 'previous_month' => $previous_month_expenses,
-            'monthly_expenses' => $monthly_expenses, 'chart' => $monthly_chart,
-            'this_month_chart' => $this_month_chart,
+            'user' => auth()->user(),
+            'month' => $this->summaryManager->getMonth($month),
+            'previous_month_name' => $this->summaryManager->getMonth($month-1),
+            'categories' => $this->summaryManager->categories,
+            'this_month' => $this->summaryManager->getThisMonthExpenses($expenses, $this->summaryManager->categories),
+            'previous_month' => $this->summaryManager->getPreviousMonthExpenses($expenses, $this->summaryManager->categories),
+            'monthly_expenses' => $this->summaryManager->getMonthlyExpenses($expenses),
+            'chart' => $this->summaryManager->createChart($this->summaryManager->months, $this->summaryManager->getMonthlyExpenses($expenses), 'bar', 'Monthly expenses', '#007bff', 'true', 'false'),
+            'this_month_chart' => $this->summaryManager->createChart($this->summaryManager->getCategoriesForChart()->values(), array_values($this->summaryManager->getThisMonthExpenses($expenses, $this->summaryManager->categories)), 'doughnut', 'This month expenses', $this->summaryManager->colors, false, false),
         ]);
     }
 
     public function showCategory($month, $category){
-        $user = User::find(auth()->user()->id);
-        $expenses = Expense::where('user_id', auth()->user()->id)->where('direction', 'expense')->where('category', $category)->whereMonth('date', $month)->get();
-
         return view('profile.category.expenses', [
-            'user' => $user,
-            'expenses' => $expenses,
+            'user' => auth()->user(),
+            'expenses' => $this->expensesProvider->getAllByCategory(auth()->user()->id, $category, $month),
         ]);
     }
 }

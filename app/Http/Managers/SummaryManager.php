@@ -6,10 +6,34 @@ namespace App\Http\Managers;
 
 use App\Charts\MonthsChart;
 use App\Charts\ThisMonthChart;
-use App\Models\Category;
+use App\Http\Providers\CategoryProvider;
 
 class SummaryManager
 {
+    private $categoryProvider;
+    public $months;
+    public $categories;
+    public $colors;
+
+    public function __construct(
+        CategoryProvider $categoryProvider
+    ){
+        $this->categoryProvider = $categoryProvider;
+        $this->months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
+        $this->colors = $colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'grey'];
+        $this->categories = $this->categoryProvider->getAll();
+    }
+
+    public function getMonth($month)
+    {
+        return $this->months[$month-1];
+    }
+
+    public function getCategoriesForChart()
+    {
+        return $this->categoryProvider->getAllForChart();
+    }
+
     public function getThisMonthExpenses($expenses, $categories){
         //this month expenses
         $this_month_expenses = [];
