@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Providers\ExpensesProvider;
+use App\Http\Providers\Interfaces\ExpensesProviderInterface;
+use App\Http\RequestProcessors\ExpensesRequestProcessor;
+use App\Http\RequestProcessors\Interfaces\ExpensesRequestProcessorInterface;
+use App\Http\Services\ProfileService;
 use App\Models\Expense;
 use App\Models\Profile;
 use App\Models\User;
@@ -9,46 +14,34 @@ use Illuminate\Http\Request;
 
 class ExpensesController extends Controller
 {
-    public function __construct()
+    private $provider;
+    private $profileService;
+    private $requestProcessor;
+
+    public function __construct(ExpensesProvider $provider, ExpensesRequestProcessor $requestProcessor, ProfileService $service)
     {
         $this->middleware('auth');
+        $this->provider = $provider;
+        $this->requestProcessor = $requestProcessor;
+        $this->profileService = $service;
     }
 
     public function store(){
-        $data = request()->validate([
-            'title' => 'required',
-            'date' => 'required',
-            'category' => 'required',
-            'recipient' => 'required',
-            'amount' => 'required',
-            'direction' => 'required',
-        ]);
+        $user = auth()->user();
+        $request = request();
+        $this->requestProcessor->store($request, $user);
 
-        if(request()->direction == "expense"){
-            $newBalance = auth()->user()->profile->balance - request()->amount;
-        }else if(request()->direction == "income"){
-            $newBalance = auth()->user()->profile->balance + request()->amount;
-            $data['recipient'] = "me";
-        }
-
-        //updating balance
         $profile = Profile::find(auth()->user()->id);
-        $profile->balance = $newBalance;
-
-        //saving all data
-        $profile->save();
-        auth()->user()->expenses()->create($data);
+        $this->profileService->updateBalance($request, $profile);
 
         return redirect()->route('home');
-
     }
 
     public function showExpenses(){
-        $user = User::find(auth()->user()->id);
-        $user_expenses = Expense::where('user_id', auth()->user()->id)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
+        $user_id = auth()->user()->id;
         return view('profile.expenses', [
-            'user' => $user,
-            'expenses' => $user_expenses,
+            'user' => User::find($user_id),
+            'expenses' => $this->provider->getAll($user_id),
         ]);
     }
 }
