@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
+@section('side_menu')
+    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-primary"><b>Expenses</b></a>
+    <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light">Incomes</a>
+    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-light">Summary</a>
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h3>Podsumowanie twoich wydatków miesiąca.</h3>
     <hr>
 </div>
@@ -37,13 +43,13 @@
         </div>
     </div>
 
-    <div class="pt-4">
+    <div class="mt-4" style="position: relative; height:40vh; width:100%">
         <h3>Monthly expenses</h3>
         {!! $chart->container() !!}
         {!! $chart->script() !!}
     </div>
 
-    <div class="pt-4">
+    <div class="mt-4" style="position: relative; height:40vh; width:100%">
         <h3>This month expenses</h3>
         {!! $this_month_chart->container() !!}
         {!! $this_month_chart->script() !!}

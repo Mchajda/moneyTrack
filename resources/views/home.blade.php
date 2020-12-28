@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('side_menu')
+    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-primary"><b>Expenses</b></a>
+    <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light">Incomes</a>
+    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-light">Summary</a>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

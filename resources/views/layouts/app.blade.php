@@ -28,17 +28,7 @@
                 </a>
 
                 @if(auth()->user())
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('showExpenses') }}">Expenses <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('showIncomes') }}">Incomes</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('showSummary', ['month' => date('m')]) }}">Summary</a>
-                        </li>
-                    </ul>
+
                 @endif
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -91,9 +81,24 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @if(auth()->user())
+            <main class="py-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-2" style="border-right: 1px solid silver;">
+                            @yield('side_menu')
+                        </div>
+                        <div class="col-10">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </main>
+        @else
+            <main class="py-4">
+                @yield('content')
+            </main>
+        @endif
     </div>
 
 
