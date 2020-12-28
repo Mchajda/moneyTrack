@@ -17,15 +17,13 @@
         </thead>
         <tbody>
             @foreach($expenses as $expense)
-                @if($expense->direction == 'expense')
-                    <tr>
-                        <td>{{ $expense->date }}</td>
-                        <td>{{ $expense->title }}</td>
-                        <td>{{ $expense->category }}</td>
-                        <td>{{ $expense->recipient }}</td>
-                        <td>{{ $expense->amount }}</td>
-                    </tr>
-                @endif
+                <tr>
+                    <td>{{ $expense->date }}</td>
+                    <td>{{ $expense->title }}</td>
+                    <td>{{ $expense->category }}</td>
+                    <td>{{ $expense->recipient }}</td>
+                    <td>{{ $expense->amount }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>

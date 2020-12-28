@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Providers\ExpensesProvider;
-use App\Http\Providers\UserProvider;
+use App\Http\Providers\IncomesProvider;
 use App\Http\RequestProcessors\ExpensesRequestProcessor;
 use App\Http\Services\ProfileService;
 use App\Models\Profile;
-use App\Models\User;
 
 
 class ExpensesController extends Controller
 {
     private $expensesProvider;
+    private $incomesProvider;
     private $profileService;
     private $requestProcessor;
 
@@ -20,11 +20,12 @@ class ExpensesController extends Controller
         ExpensesProvider $expensesProvider,
         ExpensesRequestProcessor $requestProcessor,
         ProfileService $service,
-        UserProvider $userProvider
+        IncomesProvider $incomesProvider
     )
     {
         $this->middleware('auth');
         $this->expensesProvider = $expensesProvider;
+        $this->incomesProvider = $incomesProvider;
         $this->requestProcessor = $requestProcessor;
         $this->profileService = $service;
     }
@@ -47,6 +48,7 @@ class ExpensesController extends Controller
     public function showIncomes(){
         return view('profile.incomes', [
             'user' => auth()->user(),
+            'incomes' => $this->incomesProvider->getAll(auth()->user()->id),
         ]);
     }
 }

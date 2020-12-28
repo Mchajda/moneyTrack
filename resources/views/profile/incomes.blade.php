@@ -16,16 +16,14 @@
         </tr>
         </thead>
         <tbody>
-            @foreach($user->expenses as $expense)
-                @if($expense->direction == 'income')
-                    <tr>
-                        <td>{{ $expense->date }}</td>
-                        <td>{{ $expense->title }}</td>
-                        <td>{{ $expense->category }}</td>
-                        <td>{{ $expense->recipient }}</td>
-                        <td>{{ $expense->amount }}</td>
-                    </tr>
-                @endif
+            @foreach($incomes as $income)
+                <tr>
+                    <td>{{ $income->date }}</td>
+                    <td>{{ $income->title }}</td>
+                    <td>{{ $income->category }}</td>
+                    <td>{{ $income->recipient }}</td>
+                    <td>{{ $income->amount }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>
