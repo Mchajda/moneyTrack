@@ -17,7 +17,7 @@ class IncomesProvider implements IncomesProviderInterface
 
     public function getAllByCategory($user_id, $category, $month)
     {
-        return Expense::where('user_id', $user_id)->where('direction', 'income')->where('category', $category)->whereMonth('date', $month)->get();
+        return Expense::where('user_id', $user_id)->where('direction', 'income')->where('category', $category)->whereMonth('date', $month)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
     }
 
     public function getAllByMonth($user_id, $month)

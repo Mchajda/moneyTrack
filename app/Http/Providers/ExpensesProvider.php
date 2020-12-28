@@ -17,7 +17,7 @@ class ExpensesProvider implements ExpensesProviderInterface
 
     public function getAllByCategory($user_id, $category, $month)
     {
-        return Expense::where('user_id', $user_id)->where('direction', 'expense')->where('category', $category)->whereMonth('date', $month)->get();
+        return Expense::where('user_id', $user_id)->where('direction', 'expense')->where('category', $category)->whereMonth('date', $month)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
     }
 
     public function getAllByMonth($user_id, $month)
