@@ -23,6 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

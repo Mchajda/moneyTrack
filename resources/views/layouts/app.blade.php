@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -82,13 +82,13 @@
         </nav>
 
         @if(auth()->user())
-            <main class="py-4">
+            <main class="">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-2" style="border-right: 1px solid silver;">
+                        <div class="col-2 bg-secondary pt-4" style="border-right: 1px solid silver; min-height: 100vh;">
                             @yield('side_menu')
                         </div>
-                        <div class="col-10">
+                        <div class="col-10 py-4">
                             @yield('content')
                         </div>
                     </div>

@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('side_menu')
-    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-primary"><b>Expenses</b></a>
+    <a href="#" class="btn btn-block btn-outline-dark">Add Expense</a>
+    <hr>
+    <a href="{{ route('home') }}" class="btn btn-block btn-light">Home</a>
+    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-light">Expenses</a>
     <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light">Incomes</a>
-    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-light">Summary</a>
+    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-dark active"><b>Summary</b></a>
 @endsection
 
 @section('content')
@@ -49,7 +52,7 @@
         {!! $chart->script() !!}
     </div>
 
-    <div class="mt-4" style="position: relative; height:40vh; width:100%">
+    <div class="my-4" style="position: relative; height:40vh; width:100%">
         <h3>This month expenses</h3>
         {!! $this_month_chart->container() !!}
         {!! $this_month_chart->script() !!}
