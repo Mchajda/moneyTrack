@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="">
-    <h3>Witaj {{ $user->name }}, to są twoje wydatki</h3>
+    <h2>Witaj {{ $user->name }}, to są twoje wydatki</h2>
 </div>
 <div class="">
     <table class="table table-striped table-hover table-bordered table-sm">

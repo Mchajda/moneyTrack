@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="mb-2">
-    <h3>Witaj {{ $user->name }}, to są twoje wydatki</h3>
+    <h2>Witaj {{ $user->name }}, to są twoje wydatki</h2>
 </div>
 <div class="">
 

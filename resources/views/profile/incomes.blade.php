@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="">
-    <h3>Witaj {{ $user->name }}, to są twoje przychody</h3>
+    <h2>Witaj {{ $user->name }}, to są twoje przychody</h2>
 </div>
 <div class="">
     @foreach($incomes as $expense)

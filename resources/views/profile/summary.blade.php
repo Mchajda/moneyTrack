@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="">
-    <h3>Podsumowanie twoich wydatków miesiąca.</h3>
+    <h2>Podsumowanie twoich wydatków miesiąca.</h2>
     <hr>
 </div>
 <div class="">
