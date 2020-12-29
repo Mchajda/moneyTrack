@@ -23,19 +23,21 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom">
+            <div class="container-fluid d-flex justify-content-between">
+                <div>
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
 
-                @if(auth()->user())
+                    @if(auth()->user())
 
-                @endif
+                    @endif
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -81,23 +83,27 @@
                     </ul>
                 </div>
             </div>
+
         </nav>
+
 
         @if(auth()->user())
             <main class="">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-2 bg-secondary pt-4" style="border-right: 1px solid silver; min-height: 100vh;">
+                        <div class="col-2 bg-white pt-4" style="border-right: 1px solid silver; min-height: 100vh;">
                             @yield('side_menu')
                         </div>
-                        <div class="col-10 py-4">
-                            @yield('content')
+                        <div class="col-10 my-4 bg-light">
+                            <div class="container-fluid">
+                                @yield('content')
+                            </div>
                         </div>
                     </div>
                 </div>
             </main>
         @else
-            <main class="py-4">
+            <main class="py-4 bg-light">
                 @yield('content')
             </main>
         @endif

@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('side_menu')
-    <a href="#" class="btn btn-block btn-outline-dark">Add Expense</a>
+    <a href="#" class="btn btn-block btn-outline-primary"><span class="material-icons">add</span>Add Expense</a>
     <hr>
-    <a href="{{ route('home') }}" class="btn btn-block btn-light">Home</a>
-    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-light">Expenses</a>
-    <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light">Incomes</a>
-    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-dark active"><b>Summary</b></a>
+    <a href="{{ route('home') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">list</span>Home</a>
+    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">shopping_cart</span>Expenses</a>
+    <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">shopping_cart</span>Incomes</a>
+    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-primary text-left"><b><span class="material-icons mr-1">auto_graph</span>Summary</b></a>
 @endsection
 
 @section('content')
-<div class="container-fluid">
+<div class="">
     <h3>Podsumowanie twoich wydatków miesiąca.</h3>
     <hr>
 </div>
-<div class="container">
+<div class="">
     <div class="row">
         <div class="col-3">
             <h4>{{ $previous_month_name }}</h4>

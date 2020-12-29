@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @section('side_menu')
-    <a href="#" class="btn btn-block btn-outline-dark">Add Expense</a>
+    <a href="#" class="btn btn-block btn-outline-primary"><span class="material-icons">add</span>Add Expense</a>
     <hr>
-    <a href="{{ route('home') }}" class="btn btn-block btn-dark active text-left"><b><span class="material-icons">list</span>Home</b></a>
-    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-light text-left">Expenses</a>
-    <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light text-left">Incomes</a>
-    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-light text-left">Summary</a>
+    <a href="{{ route('home') }}" class="btn btn-block btn-primary text-left"><b><span class="material-icons mr-1">list</span>Home</b></a>
+    <a href="{{ route('showExpenses') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">shopping_cart</span>Expenses</a>
+    <a href="{{ route('showIncomes') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">shopping_cart</span>Incomes</a>
+    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">auto_graph</span>Summary</a>
 @endsection
 
 @section('content')
-    <div class="container-fluid my-2">
-
+    <div class="">
         <div class="row">
             <div class="col-6">
                 <h3> Witaj {{ $user->name }}</h3>
@@ -28,7 +27,7 @@
                 <h3>Twoje ostatnie transakcje</h3>
                 @foreach($expenses as $expense)
                     <div class="card my-2">
-                        <div class="card-body">
+                        <div class="card-body pt-2 pb-2">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                     <div class=""><img src="{{ asset('/assets/icons/wrench.svg') }}" class="img-fluid img-thumbnail rounded-circle p-3"></div>

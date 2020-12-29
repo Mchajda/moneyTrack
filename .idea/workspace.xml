@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90eb7d72-ee6b-41a1-8140-f59c1316b946" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/addExpense.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/icons/list.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/icons/list.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/addExpense.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addExpense.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/category/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/category/expenses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +204,7 @@
       <workItem from="1605283336765" duration="377000" />
       <workItem from="1605299474080" duration="1739000" />
       <workItem from="1605383264066" duration="606000" />
+      <workItem from="1609245393637" duration="4894000" />
     </task>
     <servers />
   </component>
