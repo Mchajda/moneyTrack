@@ -36,7 +36,11 @@
                                 <div class="card-body pt-2 pb-2">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
-                                            <div class=""><a href="{{ route('showCategory', ['month' => date('m'), 'category' => $expense->category]) }}"><img src="{{ asset($expense->getCategoryImg($expense->category)) }}" class="img-fluid img-thumbnail rounded-circle p-3"></a></div>
+                                            <div class="border rounded-circle p-2">
+                                                <a href="{{ route('showCategory', ['month' => date('m'), 'category' => $expense->category]) }}">
+                                                    <img src="{{ asset($expense->getCategoryImg($expense->category)) }}" class="img-fluid" style="width: 36px; height: 36px;">
+                                                </a>
+                                            </div>
                                             <div class="pl-3">
                                                 <div class="d-flex flex-column">
                                                     <div class=""><b>{{ $expense->title }}</b></div>

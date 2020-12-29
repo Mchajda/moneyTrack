@@ -27,7 +27,7 @@
             <div class="container-fluid d-flex justify-content-between">
                 <div>
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'MoneyTrack') }}
                     </a>
 
                     @if(auth()->user())
