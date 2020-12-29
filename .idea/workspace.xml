@@ -21,11 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="90eb7d72-ee6b-41a1-8140-f59c1316b946" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Managers/SummaryManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Managers/SummaryManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Providers/ExpensesProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/ExpensesProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/addExpense.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addExpense.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/category/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/category/expenses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +202,7 @@
       <workItem from="1605283336765" duration="377000" />
       <workItem from="1605299474080" duration="1739000" />
       <workItem from="1605383264066" duration="606000" />
-      <workItem from="1609245393637" duration="5741000" />
+      <workItem from="1609245393637" duration="7173000" />
     </task>
     <servers />
   </component>
@@ -229,10 +231,14 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601403897884" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1600.77.1600.860@0.0.1920.1040" timestamp="1605385755792" />
-    <state x="623" y="225" width="766" height="679" key="search.everywhere.popup" timestamp="1605299787488">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="511" y="255" key="NewPhpClassDialog" timestamp="1609259461198">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602440711776" />
+    <state x="511" y="255" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609259461198" />
+    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup" timestamp="1609260457087">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1609260457087" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601474615362" />
     <state x="623" y="225" width="766" height="679" key="search.everywhere.popup/0.0.1920.1040/-1600.77.1600.860@0.0.1920.1040" timestamp="1605299787488" />
   </component>

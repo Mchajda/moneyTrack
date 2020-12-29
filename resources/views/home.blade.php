@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('side_menu')
-    <a href="#" class="btn btn-block btn-outline-primary"><span class="material-icons">add</span>Add Expense</a>
+    <a href="{{ route('addExpenseForm') }}" class="btn btn-block btn-outline-primary"><span class="material-icons">add</span>Add Expense</a>
     <hr>
     <a href="{{ route('home') }}" class="btn btn-block btn-primary text-left"><b><span class="material-icons mr-1">list</span>Home</b></a>
     <a href="{{ route('showExpenses') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">shopping_cart</span>Expenses</a>

@@ -20,7 +20,7 @@ class SummaryManager
     ){
         $this->categoryProvider = $categoryProvider;
         $this->months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
-        $this->colors = $colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'grey'];
+        $this->colors = $colors = ['#ff5722', '#ff9800', '#ffeb3b', '#4caf50', '#2196f3', '#673ab7', '#e91e63'];
         $this->categories = $this->categoryProvider->getAll();
     }
 

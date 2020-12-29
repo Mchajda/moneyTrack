@@ -22,6 +22,6 @@ class ExpensesProvider implements ExpensesProviderInterface
 
     public function getAllByMonth($user_id, $month)
     {
-        // TODO: Implement getAllByMonth() method.
+        
     }
 }

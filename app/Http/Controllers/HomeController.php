@@ -37,7 +37,7 @@ class HomeController extends Controller
 
         $categoriesForChart = Category::all()->pluck('category_name', 'id');
         $this_month_expenses = $this->summaryManager->getThisMonthExpenses($expenses, $categories);
-        $colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'grey'];
+        $this->colors = $colors = ['#ff5722', '#ff9800', '#ffeb3b', '#4caf50', '#2196f3', '#673ab7', '#e91e63'];
         $monthly_chart = $this->summaryManager->createChart($categoriesForChart->values(), array_values($this_month_expenses), 'doughnut', 'This month expenses', $colors, false, true);
 
         return view('home', [
