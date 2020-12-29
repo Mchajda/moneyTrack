@@ -20,14 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/home', [App\Http\Controllers\ExpensesController::class, 'store'])->name('addExpense');
+Route::post('/home', [App\Http\Controllers\TransactionsController::class, 'store'])->name('addExpense');
 
 Route::get('/profile', [App\Http\Controllers\ProfilesController::class, 'index'])->name('showProfile');
 Route::post('/profile', [App\Http\Controllers\ProfilesController::class, 'updateBalance'])->name('updateBalance');
 
-Route::get('/profile/add/expense', [App\Http\Controllers\ExpensesController::class, 'addExpense'])->name('addExpenseForm');
-Route::get('/profile/expenses', [App\Http\Controllers\ExpensesController::class, 'showExpenses'])->name('showExpenses');
-Route::get('/profile/incomes', [App\Http\Controllers\ExpensesController::class, 'showIncomes'])->name('showIncomes');
+Route::get('/profile/add/expense', [App\Http\Controllers\TransactionsController::class, 'addExpense'])->name('addExpenseForm');
+Route::get('/profile/expenses', [App\Http\Controllers\TransactionsController::class, 'showTransactions'])->name('showTransactions');
 Route::get('/profile/summary/{month}', [App\Http\Controllers\SummaryController::class, 'showSummary'])->name('showSummary');
 Route::get('/profile/summary/{month}/{category}', [App\Http\Controllers\SummaryController::class, 'showCategory'])->name('showCategory');
 

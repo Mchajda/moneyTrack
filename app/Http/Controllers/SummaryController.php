@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Managers\SummaryManager;
-use App\Http\Providers\ExpensesProvider;
+use App\Http\Providers\TransactionsProvider;
 use App\Http\Services\ProfileService;
 
 class SummaryController extends Controller
@@ -15,7 +15,7 @@ class SummaryController extends Controller
     public function __construct(
         SummaryManager $manager,
         ProfileService $profileService,
-        ExpensesProvider $expensesProvider
+        TransactionsProvider $expensesProvider
     ){
         $this->summaryManager = $manager;
         $this->profileService = $profileService;
@@ -23,7 +23,7 @@ class SummaryController extends Controller
     }
 
     public function showSummary($month){
-        $expenses = $this->expensesProvider->getAll(auth()->user()->id);
+        $expenses = $this->expensesProvider->getAllExpenses(auth()->user()->id);
 
         return view('profile.summary', [
             'user' => auth()->user(),
@@ -41,7 +41,7 @@ class SummaryController extends Controller
     public function showCategory($month, $category){
         return view('profile.category.expenses', [
             'user' => auth()->user(),
-            'expenses' => $this->expensesProvider->getAllByCategory(auth()->user()->id, $category, $month),
+            'expenses' => $this->expensesProvider->getAllExpensesByCategory(auth()->user()->id, $category, $month),
         ]);
     }
 }

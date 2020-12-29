@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Http\Providers\ExpensesProvider;
+use App\Http\Providers\TransactionsProvider;
 use App\Http\Providers\UserProvider;
 use App\Http\RequestProcessors\ExpensesRequestProcessor;
 use App\Http\Services\ProfileService;
@@ -19,7 +19,7 @@ class ExpensesTest extends TestCase
      */
     public function testGetAllExpenses()
     {
-        $provider = new ExpensesProvider();
+        $provider = new TransactionsProvider();
         $this->assertNotEmpty($provider->getAll(1));
     }
 

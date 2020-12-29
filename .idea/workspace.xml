@@ -21,13 +21,20 @@
   <component name="ChangeListManager">
     <list default="true" id="90eb7d72-ee6b-41a1-8140-f59c1316b946" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Managers/SummaryManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Managers/SummaryManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Providers/ExpensesProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/ExpensesProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransactionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SummaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SummaryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Providers/ExpensesProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/TransactionsProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Providers/IncomesProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Providers/Interfaces/ExpensesProviderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/Interfaces/TransactionsProviderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Providers/Interfaces/IncomesProviderInterface.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/addExpense.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addExpense.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExpensesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ExpensesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +229,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1609263794687">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609263794687" />
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601466436526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

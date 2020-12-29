@@ -3,32 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Providers\CategoryProvider;
-use App\Http\Providers\ExpensesProvider;
+use App\Http\Providers\TransactionsProvider;
 use App\Http\Providers\IncomesProvider;
 use App\Http\RequestProcessors\ExpensesRequestProcessor;
 use App\Http\Services\ProfileService;
 use App\Models\Profile;
 
 
-class ExpensesController extends Controller
+class TransactionsController extends Controller
 {
-    private $expensesProvider;
-    private $incomesProvider;
+    private $transactionsProvider;
     private $profileService;
     private $requestProcessor;
     private $categoryProvider;
 
     public function __construct(
-        ExpensesProvider $expensesProvider,
+        TransactionsProvider $transactionsProvider,
         ExpensesRequestProcessor $requestProcessor,
         ProfileService $service,
-        IncomesProvider $incomesProvider,
         CategoryProvider $categoryProvider
     )
     {
         $this->middleware('auth');
-        $this->expensesProvider = $expensesProvider;
-        $this->incomesProvider = $incomesProvider;
+        $this->transactionsProvider = $transactionsProvider;
         $this->requestProcessor = $requestProcessor;
         $this->profileService = $service;
         $this->categoryProvider = $categoryProvider;
@@ -49,17 +46,10 @@ class ExpensesController extends Controller
         return redirect()->route('home');
     }
 
-    public function showExpenses(){
+    public function showTransactions(){
         return view('profile.expenses', [
             'user' => auth()->user(),
-            'expenses' => $this->expensesProvider->getAll(auth()->user()->id),
-        ]);
-    }
-
-    public function showIncomes(){
-        return view('profile.incomes', [
-            'user' => auth()->user(),
-            'incomes' => $this->incomesProvider->getAll(auth()->user()->id),
+            'expenses' => $this->transactionsProvider->getAllByMonth(auth()->user()->id, date('m')),
         ]);
     }
 }
