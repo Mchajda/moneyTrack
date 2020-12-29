@@ -17,6 +17,12 @@ class Expense extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class, 'id');
+    }
+
+    public function getCategoryImg($name)
+    {
+        $cat = Category::where('category_name', $name)->get();
+        return $cat[0]->img_path;
     }
 }

@@ -34,7 +34,6 @@
                     <label for="category" class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="category" name="category">
-                            <option>other</option>
                             @foreach($categories as $cat)
                                 <option>{{ $cat }}</option>
                             @endforeach

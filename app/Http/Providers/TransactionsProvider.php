@@ -17,7 +17,7 @@ class TransactionsProvider implements TransactionsProviderInterface
 
     public function getAllExpensesByCategory($user_id, $category, $month)
     {
-        return Expense::where('user_id', $user_id)->where('direction', 'expense')->where('category_name', $category)->whereMonth('date', $month)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
+        return Expense::where('user_id', $user_id)->where('direction', 'expense')->where('category', $category)->whereMonth('date', $month)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
     }
 
     public function getAllExpensesByMonth($user_id, $month)
@@ -32,7 +32,7 @@ class TransactionsProvider implements TransactionsProviderInterface
 
     public function getAllIncomesByCategory($user_id, $category, $month)
     {
-        return Expense::where('user_id', $user_id)->where('direction', 'income')->where('category_name', $category)->whereMonth('date', $month)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
+        return Expense::where('user_id', $user_id)->where('direction', 'income')->where('category', $category)->whereMonth('date', $month)->orderBy('date', 'DESC')->orderBy('created_at', 'DESC')->get();
     }
 
     public function getAllIncomesByMonth($user_id, $month)
