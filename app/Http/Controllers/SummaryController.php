@@ -40,6 +40,7 @@ class SummaryController extends Controller
 
     public function showCategory($month, $category){
         return view('profile.category.expenses', [
+            'category' => $category,
             'user' => auth()->user(),
             'expenses' => $this->expensesProvider->getAllExpensesByCategory(auth()->user()->id, $category, $month),
         ]);

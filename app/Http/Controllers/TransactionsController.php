@@ -47,7 +47,7 @@ class TransactionsController extends Controller
     }
 
     public function showTransactions(){
-        return view('profile.expenses', [
+        return view('profile.transactions', [
             'user' => auth()->user(),
             'expenses' => $this->transactionsProvider->getAllByMonth(auth()->user()->id, date('m')),
         ]);

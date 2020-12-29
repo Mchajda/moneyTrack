@@ -21,20 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="90eb7d72-ee6b-41a1-8140-f59c1316b946" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpensesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransactionsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SummaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SummaryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Providers/ExpensesProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/TransactionsProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Providers/IncomesProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Providers/Interfaces/ExpensesProviderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/Interfaces/TransactionsProviderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Providers/Interfaces/IncomesProviderInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransactionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransactionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Providers/TransactionsProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Providers/TransactionsProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Expense.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Expense.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/addExpense.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/addExpense.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/incomes.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/category/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/category/expenses.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/transactions.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/summary.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExpensesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ExpensesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,10 +243,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="511" y="255" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609259461198" />
-    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup" timestamp="1609260457087">
+    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup" timestamp="1609275361203">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1609260457087" />
+    <state x="545" y="227" width="670" height="685" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1609275361203" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1600.0.1600.860@0.0.1920.1040" timestamp="1601474615362" />
     <state x="623" y="225" width="766" height="679" key="search.everywhere.popup/0.0.1920.1040/-1600.77.1600.860@0.0.1920.1040" timestamp="1605299787488" />
   </component>
