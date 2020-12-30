@@ -20,7 +20,7 @@ class ExpensesTest extends TestCase
     public function testGetAllExpenses()
     {
         $provider = new TransactionsProvider();
-        $this->assertNotEmpty($provider->getAll(1));
+        $this->assertNotEmpty($provider->getAllExpenses(1));
     }
 
     public function testUpdateBalance()
