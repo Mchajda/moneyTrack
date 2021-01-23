@@ -5,7 +5,7 @@
     <hr>
     <a href="{{ route('home') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">list</span>Home</a>
     <a href="{{ route('showTransactions') }}" class="btn btn-block btn-light text-left"><span class="material-icons mr-1">shopping_cart</span>Transactions</a>
-    <a href="{{ route('showSummary', ['month' => date('m')]) }}" class="btn btn-block btn-primary text-left"><b><span class="material-icons mr-1">auto_graph</span>Summary</b></a>
+    <a href="{{ route('showSummary', ['month' => date('n')]) }}" class="btn btn-block btn-primary text-left"><b><span class="material-icons mr-1">auto_graph</span>Summary</b></a>
 @endsection
 
 @section('content')
@@ -19,28 +19,28 @@
             <h4>{{ $previous_month_name }}</h4>
             @foreach($categories as $cat)
                 <div class="d-flex justify-content-between">
-                    <div><b><a class="text-dark" href="{{ route('showCategory', ['month' => date('m')-1, 'category' => $cat->category_name]) }}">{{ $cat->category_name }}</a></b>:</div>
+                    <div><b><a class="text-dark" href="{{ route('showCategory', ['month' => date('n'), 'category' => $cat->category_name]) }}">{{ $cat->category_name }}</a></b>:</div>
                     <div>{{ $previous_month[$cat->id] }} zł</div>
                 </div>
                 <hr>
             @endforeach
             <div class="d-flex justify-content-between">
                 <div>total:</div>
-                <div>{{ $monthly_expenses[date('m')-2] }}</div>
+                <div>{{ $monthly_expenses[date('n')] }}</div>
             </div>
         </div>
         <div class="col-9">
             <h4>{{ $month }}</h4>
             @foreach($categories as $cat)
                 <div class="d-flex justify-content-between">
-                    <div><b><a class="text-dark" href="{{ route('showCategory', ['month' => date('m'), 'category' => $cat->category_name]) }}">{{ $cat->category_name }}</a></b>:</div>
+                    <div><b><a class="text-dark" href="{{ route('showCategory', ['month' => date('n'), 'category' => $cat->category_name]) }}">{{ $cat->category_name }}</a></b>:</div>
                     <div>{{ $this_month[$cat->id] }} zł</div>
                 </div>
                 <hr>
             @endforeach
             <div class="d-flex justify-content-between">
                 <div>total:</div>
-                <div>{{ $monthly_expenses[date('m')-1] }}</div>
+                <div>{{ $monthly_expenses[date('n')] }}</div>
             </div>
         </div>
     </div>

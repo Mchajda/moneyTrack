@@ -19,14 +19,14 @@ class SummaryManager
         CategoryProvider $categoryProvider
     ){
         $this->categoryProvider = $categoryProvider;
-        $this->months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
+        $this->months = ['1' => 'styczeń', '2' => 'luty', '3' => 'marzec', '4' => 'kwiecień', '5' => 'maj', '6' => 'czerwiec', '7' => 'lipiec', '8' => 'sierpień', '9' => 'wrzesień', '10' => 'październik', '11' => 'listopad', '12' => 'grudzień'];
         $this->colors = $colors = ['#ff5722', '#ff9800', '#ffeb3b', '#4caf50', '#2196f3', '#673ab7', '#e91e63'];
         $this->categories = $this->categoryProvider->getAll();
     }
 
     public function getMonth($month)
     {
-        return $this->months[$month-1];
+        return $this->months[date('n')];
     }
 
     public function getCategoriesForChart()
@@ -34,18 +34,19 @@ class SummaryManager
         return $this->categoryProvider->getAllForChart();
     }
 
-    public function getThisMonthExpenses($expenses, $categories){
+    public function getThisMonthExpenses($expenses, $categories)
+    {
         //this month expenses
         $this_month_expenses = [];
 
         foreach($categories as $cat){
             $this_month_expenses[$cat->id] = 0;
             foreach($expenses as $expense){
-                if($expense->category == $cat->category_name && \Carbon\Carbon::parse($expense->date)->format('m') == date('m'))
+                if($expense->category == $cat->category_name && \Carbon\Carbon::parse($expense->date)->format('Y-m') == date('Y-m'))
                     $this_month_expenses[$cat->id] += $expense->amount;
             }
         }
-
+        //dd($this_month_expenses);
         return $this_month_expenses;
     }
 
